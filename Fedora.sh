@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Remove script once ran
+rm -- "$0"
+
 # Make sure script is run as root
 [ "$EUID" -ne 0 ] && {
     echo "This script must be run as root."
@@ -72,7 +75,7 @@ for repo_file in /etc/yum.repos.d/*{rpmfusion,google,PyCharm}*.repo; do
     sudo sed -i 's/^enabled=0/enabled=1/' "$repo_file"
 done
 
-# Enable Visual Studio Code repo
+# Add Visual Studio Code repo
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo >/dev/null
 
@@ -126,7 +129,7 @@ done
 sudo flatpak override --filesystem=home com.discordapp.Discord
 sudo flatpak override --filesystem=/mnt com.valvesoftware.Steam
 
-# Update system
+# Upgrade system
 sudo dnf -y upgrade && sudo dnf -y autoremove
 
 # Remove unwanted packages
