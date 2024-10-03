@@ -110,10 +110,7 @@ remove_packages=(
 )
 sudo dnf -y remove "${remove_packages[@]}"
 
-# Refresh software store
-sudo pkill gnome-software
-
-# Install Flatpak and configure applications
+# Install Flatpaks
 install_flatpaks=(
     com.valvesoftware.Steam
     com.discordapp.Discord
@@ -132,7 +129,7 @@ sudo flatpak override --filesystem=/mnt com.valvesoftware.Steam
 # Upgrade system
 sudo dnf -y upgrade && sudo dnf -y autoremove
 
-# Remove unwanted packages
+# Install RPM packages
 install_packages=(
     code
     gnome-shell-extension-appindicator
