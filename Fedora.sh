@@ -122,7 +122,7 @@ for flatpak in "${install_flatpaks[@]}"; do
     sudo flatpak -y install flathub "$flatpak"
 done
 
-# Configure Flatpak overides
+# Configure Flatpak overrides
 sudo flatpak override --filesystem=home com.discordapp.Discord
 sudo flatpak override --filesystem=/mnt com.valvesoftware.Steam
 
