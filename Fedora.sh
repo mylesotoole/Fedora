@@ -99,9 +99,7 @@ remove_packages=(
     gnome-maps
     gnome-clocks
     gnome-font-viewer
-    libreoffice-calc
-    libreoffice-impress
-    libreoffice-writer
+    libreoffice-*
     gnome-logs
     gnome-abrt
     gnome-color-manager
